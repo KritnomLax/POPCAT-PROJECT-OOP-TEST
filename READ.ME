@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Popcat</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .popcat {
+        position: relative;
+        width: 200px;
+        height: 200px;
+      }
+      .popcat img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.2s ease-out;
+      }
+      .popcat img.popped {
+        transform: rotateZ(360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="popcat" onclick="popCat()">
+      <img src="https://i.giphy.com/media/l0MYt6C0pC3cu0x0M/source.gif" alt="Popcat" />
+      <img src="https://i.giphy.com/media/l0MYt6C0pC3cu0x0M/source.gif" alt="Popcat" class="popped" style="display: none;" />
+    </div>
+
+    <script>
+      function popCat() {
+        const popcat = document.querySelector('.popcat');
+        const poppedImg = popcat.querySelector('img.popped');
+        const normalImg = popcat.querySelector('img');
+
+        poppedImg.style.display = 'block';
+        normalImg.style.display = 'none';
+
+        setTimeout(() => {
+          poppedImg.style.display = 'none';
+          normalImg.style.display = 'block';
+        }, 200);
+      }
+    </script>
+  </body>
+</html>
